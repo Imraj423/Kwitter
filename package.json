@@ -22,7 +22,7 @@
     "pushid": "^1.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-native": "^0.60.5",
+    "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^4.0.0",
     "react-pull-to-refresh": "^1.1.2",
     "react-redux": "^7.1.0",
@@ -33,6 +33,7 @@
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "semantic-ui": "^2.4.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.0",
     "typescript": "^3.5.3"
@@ -51,5 +52,19 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "description": "You will be working in teams to make a clone of a common [micro-blogging](https://en.wikipedia.org/wiki/Microblogging) platform. You will be given a back-end API for you to form your front-end application around. The API will include endpoints relating to authentication, users, messages, and likes. Your project must incorporate a majority of the endpoints given in the API.",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/Imraj423/kwitterfinalize.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Imraj423/kwitterfinalize/issues"
+  },
+  "homepage": "https://gitlab.com/Imraj423/kwitterfinalize#readme"
 }
