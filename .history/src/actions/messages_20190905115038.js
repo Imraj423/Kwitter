@@ -113,7 +113,7 @@ export const updateMessageById = messageId => dispatch => {
 
 
 export const createMessage = messageData => (dispatch, getState) => {
-  //const { token } = getState().auth.login.token;
+  const getState().auth.login.token;
   dispatch({
     type: CREATE_MESSAGE
   });
