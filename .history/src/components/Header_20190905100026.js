@@ -41,7 +41,7 @@ function IconLabelTabs() {
         <Tab icon={<HomeIcon />} label="HOME" />
         <Tab icon={<FavoriteIcon />} label="FAVORITES" />
         <Tab icon={<NotificationIcon />} label="NOTIFICATIONS" />
-        <Tab icon={<MessageIcon />} label="MESSAGES" onClick={MessageList}/>
+        <Tab icon={<MessageIcon />} label="MESSAGES" onClick={<MessageList/>}/>
         < LogOutbtn />
       </Tabs> 
      
