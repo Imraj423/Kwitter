@@ -120,3 +120,113 @@ export const signupThenGoToSignPage = signupData => dispatch => {
 export const logoutThenGoToHomepage = () => dispatch => {
   return dispatch(logout()).then(() => dispatch(push("/")));
 };
+
+//=================
+
+export const GET_USER = "GET_USER";
+export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
+export const GET_USER_FAIL = "GET_USER_FAIL";
+
+export const getUser = username => dispatch => {
+  dispatch({
+    type: GET_USER
+  });
+
+  return fetch( domain + "/users/" + username, {
+    method: "GET",
+    headers: jsonHeaders,
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: GET_USER_SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(
+        dispatch({ type: GET_USER_FAIL, payload: err.message })
+      );
+    });
+};
+
+export const getLoggedInUser = () => (dispatch, getState) => {
+  const username = getState().auth.login.username;
+  return dispatch(getUser(username))
+};
+
+//=================
+
+export const UPDATE_USER = "UPDATE_USER";
+export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
+export const UPDATE_USER_FAIL = "UPDATE_USER_FAIL";
+
+export const updateUser = updateUserData => (dispatch, getState) => {
+  dispatch({
+    type: UPDATE_USER
+  });
+
+  const { username, token } = getState().auth.login;
+
+  const newUpdateUserData = {}
+  if( updateUserData.password !== ""){
+    newUpdateUserData.password = updateUserData.password
+  }
+
+  if ( updateUserData.displayName !== "") {
+    newUpdateUserData.displayName = updateUserData.displayName
+  }
+
+  newUpdateUserData.about = updateUserData.about
+  
+  return fetch( domain + "/users/" + username, {
+    method: "PATCH",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders},
+    body: JSON.stringify(newUpdateUserData)
+  }) 
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: UPDATE_USER_SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(
+        dispatch({ type: UPDATE_USER_FAIL, payload: err.message })
+      );
+    });
+};
+
+//=================
+
+export const UPLOAD_USER_PICTURE = "UPLOAD_USER_PICTURE";
+export const UPLOAD_USER_PICTURE_SUCCESS = "UPLOAD_USER_PICTURE_SUCCESS";
+export const UPLOAD_USER_PICTURE_FAIL = "UPLOAD_USER_PICTURE_FAIL";
+
+
+export const uploadPicture = formData => (dispatch, getState) => {
+  dispatch({
+    type: UPLOAD_USER_PICTURE
+  });
+
+  const { username, token } = getState().auth.login;
+
+  return fetch( domain + "/users/" + username + "/picture", {
+    method: "PUT",
+    headers: { Authorization: "Bearer " + token },
+    body: formData
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: UPLOAD_USER_PICTURE_SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(
+        dispatch({ type: UPLOAD_USER_PICTURE_FAIL, payload: err.message })
+      );
+    });
+};

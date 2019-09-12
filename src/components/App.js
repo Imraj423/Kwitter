@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import {  LoginForm, UserProfile, SignUpForm } from ".";
+import {  LoginForm, UserProfile, SignUpForm, A2b } from ".";
 
 //import UpdateProfile2 from "./updateProfile";
 // import ComposeMessage from './CreateMessage'
@@ -21,7 +21,7 @@ class App extends Component {
         <Route exact path="/signup" render={() => <SignUpForm />} />
    
 
-        {/* <Route exact path="/edt" render={() => <UpdateProfile2 />} /> */}
+        <Route exact path="/edt" render={() => <A2b />} />
       </Switch>
     );
   }
