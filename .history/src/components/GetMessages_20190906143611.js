@@ -25,8 +25,8 @@ export function MessageList() {
   };
 
   const createUnLike = kweet => {
-    let likeId
-    for(let i = 0; i < kweet.likes.length; i++){
+    let likeId=messageId
+    for(let i = 1; i < kweet.likes.length; i++){
       let currentLike = kweet.likes[i] 
       console.log("test")
       if(currentLike.username === currentUsername){
