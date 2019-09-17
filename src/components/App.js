@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import {  LoginForm, UserProfile, SignUpForm } from ".";
-import { A2b } from "./edtUserProfile.js";
+import A2b  from "./edtUserProfile.js";
 
 //import UpdateProfile2 from "./updateProfile";
 // import ComposeMessage from './CreateMessage'
