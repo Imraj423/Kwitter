@@ -67,7 +67,26 @@ export default (state = initialState, action) => {
         updateUserError: action.payload,
         updateUserLoading: false
       } 
-    
+    case UPDATE_USER:
+      return {
+        ...state,
+        updateUserLoading: true,
+        updateUserError: null
+      };
+
+    case UPDATE_USER_SUCCESS:
+      return {
+        ...state,
+        getUser: action.payload.user,
+        updateUserError: false
+      };
+
+    case UPDATE_USER_FAIL:
+      return {
+        ...state,
+        updateUserError: action.payload,
+        updateUserLoading: false
+      };
 
     default:
       return state;
