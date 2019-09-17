@@ -22,7 +22,7 @@ class App extends Component {
         <Route exact path="/signup" render={() => <SignUpForm />} />
    
 
-        <Route exact path="/edt" render={() => <A2b />} />
+        <Route exact path="/edt" render={() => <A2b/>} />
       </Switch>
     );
   }

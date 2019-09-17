@@ -146,66 +146,21 @@ export const createMessage = messageData => (dispatch, getState) => {
 
 
 
-// export const deleteMessage = kweet => (dispatch, getState) => {
-//   dispatch({
-//     type: DELETE_MESSAGE
-//   });
-
-//   return fetch(MESSAGES_DOMAIN + `/${kweet.id}`, {
-//     method: "DELETE",
-//     headers: {
-//       ...jsonHeaders,
-//       Authorization: `Bearer ${getState().auth.login.token}`
-//     }
-//   })
-//     .then(handleJsonResponse)
-//     .then(result => {
-//       dispatch({
-//         type: DELETE_MESSAGE_SUCCESS,
-//         payload: result
-//       });
-//     })
-//     .catch(err => {
-//       return Promise.reject(
-//         dispatch({
-//           type: DELETE_MESSAGE_FAIL,
-//           payload: err.message
-//         })
-//       );
-//     });
-// };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export const deleteMessage = messageId => (dispatch, getState) => {
+export const deleteKweet = kweet => (dispatch, getState) => {
   dispatch({
     type: DELETE_MESSAGE
   });
-  const { token } = getState().auth.login.token;
 
-  return fetch(url + "/" + messageId, {
+  return fetch(MESSAGES_DOMAIN + `/${kweet.id}`, {
     method: "DELETE",
-    headers: { Authorization: "Bearer " + token, ...jsonHeaders }
+    headers: {
+      ...jsonHeaders,
+      Authorization: `Bearer ${getState().auth.login.token}`
+    }
   })
     .then(handleJsonResponse)
     .then(result => {
-      return dispatch({
+      dispatch({
         type: DELETE_MESSAGE_SUCCESS,
         payload: result
       });
@@ -214,8 +169,53 @@ export const deleteMessage = messageId => (dispatch, getState) => {
       return Promise.reject(
         dispatch({
           type: DELETE_MESSAGE_FAIL,
-          payload: err
+          payload: err.message
         })
       );
     });
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const deleteMessage = messageId => (dispatch, getState) => {
+//   dispatch({
+//     type: DELETE_MESSAGE
+//   });
+//   const { token } = getState().auth.login.token;
+
+//   return fetch(url + "/" + messageId, {
+//     method: "DELETE",
+//     headers: { Authorization: "Bearer " + token, ...jsonHeaders }
+//   })
+//     .then(handleJsonResponse)
+//     .then(result => {
+//       return dispatch({
+//         type: DELETE_MESSAGE_SUCCESS,
+//         payload: result
+//       });
+//     })
+//     .catch(err => {
+//       return Promise.reject(
+//         dispatch({
+//           type: DELETE_MESSAGE_FAIL,
+//           payload: err
+//         })
+//       );
+//     });
+// };
