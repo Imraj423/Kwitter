@@ -146,7 +146,7 @@ export const createMessage = messageData => (dispatch, getState) => {
 
 
 
-export const deleteMessage = kweet => (dispatch, getState) => {
+export const deleteKweet = kweet => (dispatch, getState) => {
   dispatch({
     type: DELETE_MESSAGE
   });
@@ -168,7 +168,7 @@ export const deleteMessage = kweet => (dispatch, getState) => {
     .catch(err => {
       return Promise.reject(
         dispatch({
-          type: DELETE_MESSAGE_FAIL,
+          type: DELETE_MESSAGE_FAILURE,
           payload: err.message
         })
       );
