@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { domain } from "../actions/constants";
 
 
-export class A2b extends Component {
+class A2b extends Component {
   state = {
     password: "",
     about: "",

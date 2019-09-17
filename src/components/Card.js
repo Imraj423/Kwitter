@@ -28,7 +28,6 @@ function MediaCard() {
     <CardActionArea className={classes.media} title="User Profile">
       <CardMedia className={classes.cm}>
         <img src={Background} alt="logo" />
-
         <CardContent>
           <Typography gutterBottom variant="h3" component="h1">
             {currentUsername}

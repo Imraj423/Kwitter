@@ -120,7 +120,8 @@ export const signupThenGoToSignPage = signupData => dispatch => {
 export const logoutThenGoToHomepage = () => dispatch => {
   return dispatch(logout()).then(() => dispatch(push("/")));
 };
-////////////=================
+
+//=================
 
 export const GET_USER = "GET_USER";
 export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
