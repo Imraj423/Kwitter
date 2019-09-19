@@ -44,7 +44,6 @@ class A2b extends Component {
         <p>
           <h2>This is the user profile. Welcome!</h2>
         </p>
-        <img src={domain + this.props.user.pictureLocation} alt="Profile_Pic" />
 
         <p>
           <h3>Username: {this.props.user.username}</h3>
@@ -67,17 +66,13 @@ class A2b extends Component {
           <input type="text" name="displayName" onChange={this.handleChange} />
           <br />
           <label htmlFor="about"> About </label>
-
-          <br />
           <input type="text" name="about" onChange={this.handleChange} />
-
           <button type="submit"> Update Info</button>
-          <br />
         </form>
-        <br />
+
         <form onSubmit={this.handleUploadPicture}>
           <input name="picture" type="file" />
-          <button value="submit" >Upload Picture</button>
+          <button type="submit">Upload Picture</button>
         </form>
 
         <img src={domain + this.props.user.pictureLocation} alt="Profile_Pic" />

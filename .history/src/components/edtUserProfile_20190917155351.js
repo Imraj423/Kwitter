@@ -77,7 +77,7 @@ class A2b extends Component {
         <br />
         <form onSubmit={this.handleUploadPicture}>
           <input name="picture" type="file" />
-          <button value="submit" >Upload Picture</button>
+          <button value="submit" onClick="window.location.reload();">Upload Picture</button>
         </form>
 
         <img src={domain + this.props.user.pictureLocation} alt="Profile_Pic" />

@@ -32,9 +32,9 @@ class SignUpForm extends Component {
       };
 
     render() {
-        
+        // const { isLoading, err } = this.props;
         return (
-            
+            // <React.Fragment>
             <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div style={{

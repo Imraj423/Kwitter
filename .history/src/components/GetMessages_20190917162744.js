@@ -5,7 +5,7 @@ import Dislike from "@material-ui/icons/ThumbDown.js";
 import Like from "@material-ui/icons/ThumbUp.js";
 import { Input } from "@material-ui/core";
 import { Button } from "semantic-ui-react";
-import { getMessages, createMessage} from "../actions/messages";
+import { getMessages, createMessage, deleteMessage } from "../actions/messages";
 import { addLike, unLike } from "../actions/likes";
 import Background from "./Logo1.png";
 import { getUser } from "../actions";
@@ -37,18 +37,18 @@ dispatch(unLike(likeId)).then(()=>dispatch(getMessages()))
 
   };
 
-  // const unMessage = kweet => {
-  //   let messageId;
-  //   for (let i = 0; i < getMessages.length; i++) {
-  //     for (let j = 0; j < i.length; j++) {
-  //       let currentMessage = kweet.messageId[j];
-  //       if (currentMessage.username === currentUsername) {
-  //         messageId = currentMessage.id;
-  //       }
-  //     }
-  //   }
-  //   dispatch(deleteMessage(messageId)).then(() => dispatch(getMessages()));
-  // };
+  const unMessage = kweet => {
+    let messageId;
+    for (let i = 0; i < getMessages.length; i++) {
+      for (let j = 0; j < i.length; j++) {
+        let currentMessage = kweet.messageId[j];
+        if (currentMessage.username === currentUsername) {
+          messageId = currentMessage.id;
+        }
+      }
+    }
+    dispatch(deleteMessage(messageId)).then(() => dispatch(getMessages()));
+  };
 
   
 
@@ -129,10 +129,10 @@ const createMsg = () => {
                       UnLike
                     </Dislike>
                       </Button>
-                    {/* <Button 
-                    onClick={() => unMessage(kweet)}
+                    <Button 
+                    onClick={() => unMessage(messageId)}
                     style={{ height: "20px", width: "20px" }}
-                    >Delete</Button> */}
+                    >Delete</Button>
                   
                 </div>
               </div>

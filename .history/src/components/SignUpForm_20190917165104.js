@@ -10,7 +10,6 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Background from './Logo1.png'
-import InputAdornments from "./PWVisibilty";
 
 
 
@@ -32,9 +31,9 @@ class SignUpForm extends Component {
       };
 
     render() {
-        
+        // const { isLoading, err } = this.props;
         return (
-            
+            // <React.Fragment>
             <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div style={{
@@ -79,15 +78,15 @@ class SignUpForm extends Component {
            </Grid> 
             <Grid item xs={12} >
                    
-                    <InputAdornments/>
-                    {/* <TextField 
+
+                    <TextField 
                         type="text" 
                         name="password" 
                         required
                         onChange={this.handleChange}
                         style={{display:'flex', justifyContent: 'center', padding:'3, 0, 2'}}
                         label="Password"
-                    /> */}
+                    />
                     </Grid>
 
                     <Button 

@@ -41,43 +41,27 @@ class A2b extends Component {
     
     return (
       <React.Fragment>
-        <p>
-          <h2>This is the user profile. Welcome!</h2>
-        </p>
-        <img src={domain + this.props.user.pictureLocation} alt="Profile_Pic" />
+        
+        <p>This is the user profile. Welcome!</p>
 
-        <p>
-          <h3>Username: {this.props.user.username}</h3>
-        </p>
-        <p>
-          <h3>Display Name: {this.props.user.displayName}</h3>
-        </p>
-        <p>
-          <h3>About: {this.props.user.about}</h3>
-        </p>
+        <p>Username: {this.props.user.username}</p>
+        <p>Display Name: {this.props.user.displayName}</p>
+        <p>About: {this.props.user.about}</p>
 
         <h3>Update Your Profile Info: </h3>
         <form onSubmit={this.handleUpdateUser}>
           <label htmlFor="password"> Password </label>
-          <br />
           <input type="text" name="password" onChange={this.handleChange} />
-          <br />
           <label htmlFor="displayName"> Display Name </label>
-          <br />
           <input type="text" name="displayName" onChange={this.handleChange} />
-          <br />
           <label htmlFor="about"> About </label>
-
-          <br />
           <input type="text" name="about" onChange={this.handleChange} />
-
           <button type="submit"> Update Info</button>
-          <br />
         </form>
-        <br />
+
         <form onSubmit={this.handleUploadPicture}>
           <input name="picture" type="file" />
-          <button value="submit" >Upload Picture</button>
+          <button type="submit">Upload Picture</button>
         </form>
 
         <img src={domain + this.props.user.pictureLocation} alt="Profile_Pic" />

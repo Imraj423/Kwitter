@@ -78,7 +78,7 @@ class A2b extends Component {
         <form onSubmit={this.handleUploadPicture}>
           <input name="picture" type="file" />
           <button value="submit" >Upload Picture</button>
-        </form>
+<button value="Refresh Page" onClick="window.location.href=window.location.href">        </form>
 
         <img src={domain + this.props.user.pictureLocation} alt="Profile_Pic" />
       </React.Fragment>

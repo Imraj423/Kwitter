@@ -32,9 +32,9 @@ class SignUpForm extends Component {
       };
 
     render() {
-        
+        // const { isLoading, err } = this.props;
         return (
-            
+            // <React.Fragment>
             <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div style={{
@@ -78,8 +78,12 @@ class SignUpForm extends Component {
                     />
            </Grid> 
             <Grid item xs={12} >
-                   
-                    <InputAdornments/>
+                   <TextField
+                   name="password"
+                   required
+                   label="Password"
+                    {InputAdornments}
+                    ></TextField>
                     {/* <TextField 
                         type="text" 
                         name="password" 
