@@ -19,7 +19,7 @@ class App extends Component {
         <Route exact path="/" render={() => <LoginForm />} />
         <Route exact path="/profile" render={() => <UserProfile />} />
 
-        <Route exact path="/signup" render={() => <SignUpForm />} />
+        <Route exact path="PUBLIC_URL/signup" render={() => <SignUpForm />} />
    
 
         <Route exact path="/edt" render={() => <EditProfile />} />
