@@ -3,15 +3,15 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 // import { Link } from 'react-router-dom';
-import Grid from '@material-ui/core/Grid';
+//import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { loginThenGoToUserProfile as login } from "../actions";
 import Container from '@material-ui/core/Container';
 import Background from './Logo1.png'
 import useStyles from'./LFStyle.js'
 import { useDispatch } from 'react-redux'
-import { Link } from '@material-ui/core';
-
+//import { Link } from '@material-ui/core';
+import { Redirect } from "react-router-dom";
 
 
 function LoginForm() {
@@ -20,6 +20,9 @@ function LoginForm() {
   const dispatch = useDispatch()
   const [username, setUsername]= useState("")
   const [password, setPassword] = useState("")
+ 
+  
+
 
 
 
@@ -35,7 +38,6 @@ function LoginForm() {
   const handlePasswordChange = e => {
     setPassword(e.target.value)
   };
- 
 
   
   
@@ -87,20 +89,46 @@ function LoginForm() {
           >
             Log In
           </Button>
-          <Grid container>
-            <Grid item>
-              <Link href="/SignUp" variant="body2">  
-                {"Don't have an account? Sign Up"}
-              </Link>
-              {/* or "/Registration if signup doesn't work" */}
-            </Grid>
-          </Grid>
         </form>
       </div>
       
     </Container>
   );
 }
+
+
+class MyComponent extends React.Component {
+  state = {
+    redirect: false
+  };
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    });
+  };
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/target" />;
+    }
+  };
+  render() {
+    return (
+      <div>
+        {this.renderRedirect()}
+        <button onClick={this.setRedirect}>Redirect</button>
+      </div>
+    );
+  }
+// }
+//           <Grid container>
+//             <Grid item>
+              
+//               <Link onClick="{SURoute}" variant="body2">  
+//                 {"Don't have an account? Sign Up"}
+//               </Link>
+//               {/* or "/Registration if signup doesn't work" */}
+//             </Grid>
+//           </Grid>
 
 
 export default LoginForm;

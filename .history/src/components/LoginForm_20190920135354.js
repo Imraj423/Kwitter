@@ -11,6 +11,7 @@ import Background from './Logo1.png'
 import useStyles from'./LFStyle.js'
 import { useDispatch } from 'react-redux'
 import { Link } from '@material-ui/core';
+import { Redirect } from "react-router-dom";
 
 
 
@@ -20,6 +21,7 @@ function LoginForm() {
   const dispatch = useDispatch()
   const [username, setUsername]= useState("")
   const [password, setPassword] = useState("")
+  const [Redirect, setRedirect] = useState("")
 
 
 
@@ -35,7 +37,9 @@ function LoginForm() {
   const handlePasswordChange = e => {
     setPassword(e.target.value)
   };
- 
+  const handleRouteSU = e => {
+    setRedirect(e.target.value)
+  }
 
   
   
@@ -89,7 +93,7 @@ function LoginForm() {
           </Button>
           <Grid container>
             <Grid item>
-              <Link href="/SignUp" variant="body2">  
+              <Link onClick={handleRouteSU} variant="body2">  
                 {"Don't have an account? Sign Up"}
               </Link>
               {/* or "/Registration if signup doesn't work" */}

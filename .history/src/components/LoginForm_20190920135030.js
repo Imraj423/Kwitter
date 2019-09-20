@@ -20,6 +20,7 @@ function LoginForm() {
   const dispatch = useDispatch()
   const [username, setUsername]= useState("")
   const [password, setPassword] = useState("")
+ 
 
 
 
@@ -35,7 +36,6 @@ function LoginForm() {
   const handlePasswordChange = e => {
     setPassword(e.target.value)
   };
- 
 
   
   
@@ -89,7 +89,7 @@ function LoginForm() {
           </Button>
           <Grid container>
             <Grid item>
-              <Link href="/SignUp" variant="body2">  
+              <Link onClick="/SignUp" variant="body2">  
                 {"Don't have an account? Sign Up"}
               </Link>
               {/* or "/Registration if signup doesn't work" */}

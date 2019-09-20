@@ -20,6 +20,9 @@ function LoginForm() {
   const dispatch = useDispatch()
   const [username, setUsername]= useState("")
   const [password, setPassword] = useState("")
+ 
+  
+
 
 
 
@@ -35,7 +38,6 @@ function LoginForm() {
   const handlePasswordChange = e => {
     setPassword(e.target.value)
   };
- 
 
   
   
@@ -87,20 +89,21 @@ function LoginForm() {
           >
             Log In
           </Button>
-          <Grid container>
-            <Grid item>
-              <Link href="/SignUp" variant="body2">  
-                {"Don't have an account? Sign Up"}
-              </Link>
-              {/* or "/Registration if signup doesn't work" */}
-            </Grid>
-          </Grid>
         </form>
       </div>
       
     </Container>
   );
 }
+          <Grid container>
+            <Grid item>
+              
+              <Link onClick="{SURoute}" variant="body2">  
+                {"Don't have an account? Sign Up"}
+              </Link>
+              {/* or "/Registration if signup doesn't work" */}
+            </Grid>
+          </Grid>
 
 
 export default LoginForm;
