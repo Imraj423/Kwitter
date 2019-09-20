@@ -43,10 +43,10 @@ const useStyles = makeStyles(theme => ({
 export default function InputAdornments() {
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    amount: "",
+    
     password: "",
-    weight: "",
-    weightRange: "",
+    
+    
     showPassword: false
   });
 
@@ -57,6 +57,7 @@ export default function InputAdornments() {
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
+   
 
   const handleMouseDownPassword = event => {
     event.preventDefault();

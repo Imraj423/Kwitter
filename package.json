@@ -21,7 +21,7 @@
     "pusher-js": "^5.0.0",
     "pushid": "^1.0.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.9.0",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^4.0.0",
     "react-pull-to-refresh": "^1.1.2",
@@ -30,11 +30,13 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
     "react-spinkit": "^3.0.0",
+    "react-webcam": "^3.0.1",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.0",
+    "shards-react": "^1.0.3",
     "typescript": "^3.5.3"
   },
   "scripts": {
