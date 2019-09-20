@@ -20,7 +20,7 @@ export const DELETE_MESSAGE_SUCCESS = "DELETE_MESSAGE_SUCCESS";
 export const DELETE_MESSAGE_FAIL = "DELETE_MESSAGE_FAIL";
 
 
-export const getMessages = (limit = 100, offset = 1, username) => dispatch => {
+export const getMessages = (limit = 100, offset = 0, username) => dispatch => {
   dispatch({ type: GET_MESSAGES });
 
   return fetch(
@@ -130,8 +130,8 @@ export const createMessage = messageData => (dispatch, getState) => {
     .then(result => {
       return dispatch({
         type: CREATE_MESSAGE_SUCCESS,
-        payload: result,
-        body: window.location.reload(true)
+        payload: result
+        //body: window.location.reload(true)
       });
     })
     .catch(err => {
@@ -169,11 +169,10 @@ export const deleteMessage = messageId => (dispatch, getState) => {
   dispatch({
     type: DELETE_MESSAGE
   });
-  const { token } = getState().auth.login.token;
 
   return fetch(url + "/" + messageId, {
     method: "DELETE",
-    headers: { Authorization: "Bearer " + token, ...jsonHeaders }
+    headers: { Authorization: "Bearer " + getState().auth.login.token, ...jsonHeaders }
   })
     .then(handleJsonResponse)
     .then(result => {
