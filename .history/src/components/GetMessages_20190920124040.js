@@ -77,13 +77,13 @@ export function MessageList() {
     <>
       <div
         style={{
-          width: "50vw",
+          width: "500px",
           marginTop: "30px",
           marginBottom: "1px",
           display: "flex",
           WebkitJustifyContent: "flexStart",
           position: "relative",
-          // left: "358px"
+          left: "358px"
         }}
       >
         <Input
@@ -96,20 +96,17 @@ export function MessageList() {
         <Button onClick={createMsg}>Kweet!</Button>
       </div>
       <div style={{
-        height: "60vh",
-        width: "30vw",
-        overflowY: "scroll",
-        display:"flex",
-        flexDirection:"column"
+        height: "80vh",
+        overflowY: "scroll"
       }}>
       {kweets.length > 0 &&
         kweets.map((kweet, index) => (
           <Container
             style={{
-              width: "25vw",
+              width: "500px",
               marginTop: "30px",
               marginBottom: "1px",
-              //display: "flex",
+              display: "flex",
               WebkitJustifyContent: "flexStart"
               }}
             key={kweet.id}>

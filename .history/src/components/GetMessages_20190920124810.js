@@ -77,13 +77,13 @@ export function MessageList() {
     <>
       <div
         style={{
-          width: "50vw",
+          width: "500px",
           marginTop: "30px",
           marginBottom: "1px",
           display: "flex",
           WebkitJustifyContent: "flexStart",
           position: "relative",
-          // left: "358px"
+          left: "358px"
         }}
       >
         <Input
@@ -99,14 +99,13 @@ export function MessageList() {
         height: "60vh",
         width: "30vw",
         overflowY: "scroll",
-        display:"flex",
-        flexDirection:"column"
+        display:"flex"
       }}>
       {kweets.length > 0 &&
         kweets.map((kweet, index) => (
           <Container
             style={{
-              width: "25vw",
+              width: "40vw",
               marginTop: "30px",
               marginBottom: "1px",
               //display: "flex",

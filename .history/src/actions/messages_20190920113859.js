@@ -130,8 +130,8 @@ export const createMessage = messageData => (dispatch, getState) => {
     .then(result => {
       return dispatch({
         type: CREATE_MESSAGE_SUCCESS,
-        payload: result,
-        body: window.location.reload(true)
+        payload: result
+        //body: window.location.reload(true)
       });
     })
     .catch(err => {

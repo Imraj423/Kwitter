@@ -106,7 +106,7 @@ export function MessageList() {
         kweets.map((kweet, index) => (
           <Container
             style={{
-              width: "25vw",
+              width: "30vw",
               marginTop: "30px",
               marginBottom: "1px",
               //display: "flex",

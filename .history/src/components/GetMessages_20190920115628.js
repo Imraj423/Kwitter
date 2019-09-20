@@ -15,12 +15,6 @@ export function MessageList() {
   const kweets = useSelector(state => state.messages.getMessages);
   const currentUsername = useSelector(state => state.auth.login.username);
 
-
-
-
-
-
-
   // const create = useSelector(state => state.messages.createMessage)
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
@@ -77,43 +71,42 @@ export function MessageList() {
     <>
       <div
         style={{
-          width: "50vw",
+          width: "500px",
           marginTop: "30px",
           marginBottom: "1px",
           display: "flex",
           WebkitJustifyContent: "flexStart",
           position: "relative",
-          // left: "358px"
+          left: "358px"
         }}
       >
         <Input
           onChange={handleInput}
           style={{ border: "1px gray solid", width: "358px", padding:"3px" }}
 
-          placeholder = "Enter Kweet..."
+          placeholder = "Enter Comment..."
         >
         </Input>
         <Button onClick={createMsg}>Kweet!</Button>
       </div>
       <div style={{
-        height: "60vh",
-        width: "30vw",
-        overflowY: "scroll",
-        display:"flex",
-        flexDirection:"column"
+        height: "80vh",
+        overflowY: "scroll"
       }}>
       {kweets.length > 0 &&
         kweets.map((kweet, index) => (
           <Container
             style={{
-              width: "25vw",
+              width: "500px",
               marginTop: "30px",
               marginBottom: "1px",
-              //display: "flex",
+              display: "flex",
               WebkitJustifyContent: "flexStart"
-              }}
-            key={kweet.id}>
-
+                
+              
+            }}
+            key={kweet.id}
+          >
             <div style={styles.kweet}>
               <img
                 style={styles.profileCircle}
@@ -162,7 +155,6 @@ export function MessageList() {
        </div>
     </>
   );
-  
 }
 const styles = {
   profileCircle: {
