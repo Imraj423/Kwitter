@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 import Dislike from "@material-ui/icons/ThumbDown.js";
 import Like from "@material-ui/icons/ThumbUp.js";
 import { Input } from "@material-ui/core";
-import { Button } from "semantic-ui-react";
+import { Button } from "@material-ui-/core/Button";
 import { getMessages, createMessage, deleteMessage } from "../actions/messages";
 import { addLike, unLike } from "../actions/likes";
 import Background from "./Logo1.png";
