@@ -1,21 +1,18 @@
-import React from 'react';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import useStyles from './LFStyle.js'
-import Background from './Logo1.png'
+import React from "react";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
+import useStyles from "./LFStyle.js";
+import Background from "./Logo1.png";
 import { Link } from "@material-ui/core";
 import { useSelector } from "react-redux";
 
-
-
 function MediaCard() {
- 
   const classes = useStyles();
   const currentUsername = useSelector(state => state.auth.login.username);
- 
+
   return (
     <CardActionArea className={classes.media} title="User Profile">
       <CardMedia className={classes.cm}>
@@ -33,13 +30,19 @@ function MediaCard() {
               PROFILE
             </Link>
             <div className={classes.hLinks}>
-              <a href="https://www.facebook.com" className={classes.ilink}>Facebook</a>
+              <a href="https://www.facebook.com" className={classes.ilink}>
+                Facebook
+              </a>
               <br />
               <br />
-              <a href="https://www.linkedin.com" className={classes.ilink}>LinkedIn</a>
+              <a href="https://www.linkedin.com" className={classes.ilink}>
+                LinkedIn
+              </a>
               <br />
               <br />
-              <a href="https://www.instagram.com" className={classes.ilink}>Instagram</a>
+              <a href="https://www.instagram.com" className={classes.ilink}>
+                Instagram
+              </a>
               <br />
               <br />
             </div>
@@ -50,6 +53,4 @@ function MediaCard() {
   );
 }
 
-
-
-export default MediaCard
+export default MediaCard;

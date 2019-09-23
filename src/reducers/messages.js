@@ -32,7 +32,6 @@ const initialState = {
   createMessageError: null
 };
 
-
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_USER_MESSAGES:
@@ -53,7 +52,7 @@ export default (state = initialState, action) => {
         getUserMessagesError: action.payload,
         getUserMessagesLoading: false
       };
-      case GET_MESSAGES:
+    case GET_MESSAGES:
       return {
         ...state,
         getMessagesLoading: true,
@@ -71,7 +70,7 @@ export default (state = initialState, action) => {
         getMessagesError: action.payload,
         getMessagesLoading: false
       };
-      case CREATE_MESSAGE:
+    case CREATE_MESSAGE:
       return {
         ...state,
         createMessageLoading: true,
@@ -140,7 +139,7 @@ export default (state = initialState, action) => {
         updateMessageByIdError: action.payload,
         updateMessageByIdLoading: false
       };
-      /*case ADD_LIKE_SUCCESS:
+    /*case ADD_LIKE_SUCCESS:
         const addLikeCallback = message => {
           if (message.id === action.payload.like.messageId) {
             message.likes = [action.payload.like, ...message.likes];

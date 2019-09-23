@@ -27,7 +27,6 @@ export default function FriendsList() {
 
   useEffect(() => {
     dispatch(getAllUsers());
-
   });
 
   useEffect(() => {
@@ -55,7 +54,7 @@ export default function FriendsList() {
               value={searchValue}
               onChange={e => setSearchValue(e.target.value)}
               style={{
-                  width: "40vw"
+                width: "40vw"
               }}
             />
           </div>

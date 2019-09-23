@@ -35,7 +35,7 @@ const login = loginData => dispatch => {
     })
     .catch(err => {
       return Promise.reject(
-        dispatch({ type: LOGIN_FAIL, payload: err.message})
+        dispatch({ type: LOGIN_FAIL, payload: err.message })
       );
     });
 };
@@ -44,22 +44,22 @@ export const loginThenGoToUserProfile = loginData => dispatch => {
   return dispatch(login(loginData)).then(() => dispatch(push("/profile")));
 };
 
- // const token = getState().auth.login.token;
+// const token = getState().auth.login.token;
 
-  // return fetch(url + "/logout", {
-  //   method: "GET",
-  //   headers: { ...jsonHeaders, Authorization: `Bearer ${token}` }
-  // })
+// return fetch(url + "/logout", {
+//   method: "GET",
+//   headers: { ...jsonHeaders, Authorization: `Bearer ${token}` }
+// })
 export const logout = () => (dispatch, getState) => {
   dispatch({
     type: LOGOUT
   });
- const token = getState().auth.login.token
+  const token = getState().auth.login.token;
 
   return fetch(url + "/logout", {
     method: "GET",
-    headers: { Authorization: "Bearer " + token, ...jsonHeaders},})
- 
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders }
+  })
     .then(handleJsonResponse)
     .then(result => {
       return dispatch({
@@ -75,10 +75,8 @@ export const logout = () => (dispatch, getState) => {
 };
 //User flow. Using an entire chain flow
 export const logoutThenGoToHomePage = () => dispatch => {
-    return dispatch(logout()).then(() => dispatch(push("/")));
-}
-
-
+  return dispatch(logout()).then(() => dispatch(push("/")));
+};
 
 //========================
 // action types
@@ -132,9 +130,9 @@ export const getUser = username => dispatch => {
     type: GET_USER
   });
 
-  return fetch( domain + "/users/" + username, {
+  return fetch(domain + "/users/" + username, {
     method: "GET",
-    headers: jsonHeaders,
+    headers: jsonHeaders
   })
     .then(handleJsonResponse)
     .then(result => {
@@ -152,7 +150,7 @@ export const getUser = username => dispatch => {
 
 export const getLoggedInUser = () => (dispatch, getState) => {
   const username = getState().auth.login.username;
-  return dispatch(getUser(username))
+  return dispatch(getUser(username));
 };
 
 //=================
@@ -168,22 +166,22 @@ export const updateUser = updateUserData => (dispatch, getState) => {
 
   const { username, token } = getState().auth.login;
 
-  const newUpdateUserData = {}
-  if( updateUserData.password !== ""){
-    newUpdateUserData.password = updateUserData.password
+  const newUpdateUserData = {};
+  if (updateUserData.password !== "") {
+    newUpdateUserData.password = updateUserData.password;
   }
 
-  if ( updateUserData.displayName !== "") {
-    newUpdateUserData.displayName = updateUserData.displayName
+  if (updateUserData.displayName !== "") {
+    newUpdateUserData.displayName = updateUserData.displayName;
   }
 
-  newUpdateUserData.about = updateUserData.about
-  
-  return fetch( domain + "/users/" + username, {
+  newUpdateUserData.about = updateUserData.about;
+
+  return fetch(domain + "/users/" + username, {
     method: "PATCH",
-    headers: { Authorization: "Bearer " + token, ...jsonHeaders},
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
     body: JSON.stringify(newUpdateUserData)
-  }) 
+  })
     .then(handleJsonResponse)
     .then(result => {
       return dispatch({
@@ -204,7 +202,6 @@ export const UPLOAD_USER_PICTURE = "UPLOAD_USER_PICTURE";
 export const UPLOAD_USER_PICTURE_SUCCESS = "UPLOAD_USER_PICTURE_SUCCESS";
 export const UPLOAD_USER_PICTURE_FAIL = "UPLOAD_USER_PICTURE_FAIL";
 
-
 export const uploadPicture = formData => (dispatch, getState) => {
   dispatch({
     type: UPLOAD_USER_PICTURE
@@ -212,7 +209,7 @@ export const uploadPicture = formData => (dispatch, getState) => {
 
   const { username, token } = getState().auth.login;
 
-  return fetch( domain + "/users/" + username + "/picture", {
+  return fetch(domain + "/users/" + username + "/picture", {
     method: "PUT",
     headers: { Authorization: "Bearer " + token },
     body: formData

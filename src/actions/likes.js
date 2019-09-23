@@ -39,7 +39,7 @@ export const unLike = likeId => (dispatch, getState) => {
     type: REMOVE_LIKE
   });
 
- const token = getState().auth.login.token;
+  const token = getState().auth.login.token;
 
   return fetch(url + `/${likeId}`, {
     method: "DELETE",
@@ -71,7 +71,7 @@ export const addLike = messageId => (dispatch, getState) => {
     type: ADD_LIKE
   });
 
- const token = getState().auth.login.token;
+  const token = getState().auth.login.token;
 
   return fetch(url, {
     method: "POST",
@@ -93,4 +93,4 @@ export const addLike = messageId => (dispatch, getState) => {
         })
       );
     });
-};      
+};

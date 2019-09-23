@@ -15,12 +15,6 @@ export function MessageList() {
   const kweets = useSelector(state => state.messages.getMessages);
   const currentUsername = useSelector(state => state.auth.login.username);
 
-
-
-
-
-
-
   // const create = useSelector(state => state.messages.createMessage)
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
@@ -42,23 +36,11 @@ export function MessageList() {
   };
 
   const unMessage = kweet => {
-    
-    console.log('test')
-    console.log(kweet)
+    console.log("test");
+    console.log(kweet);
     dispatch(deleteMessage(kweet)).then(() => dispatch(getMessages()));
-    // for (let i = 0; i < kweets.length; i++) {
-    //   console.log(getMessages[i])
-      // for (let j = 0; j < getMessages[i].length; j++) {
-        // let currentMessage = kweet.messageId[j];
-        // if (currentMessage.username === currentUsername) {
-        //   messageId = currentMessage.id;
-        // }
-      // }
-    // }
-    // dispatch(deleteMessage(messageId)).then(() => dispatch(getMessages()));
   };
 
- 
   const handleInput = e => {
     //take in the event
     setInput(e.target.value);
@@ -82,87 +64,83 @@ export function MessageList() {
           marginBottom: "1px",
           display: "flex",
           WebkitJustifyContent: "flexStart",
-          position: "relative",
+          position: "relative"
           // left: "358px"
         }}
       >
         <Input
           onChange={handleInput}
-          style={{ border: "1px gray solid", width: "358px", padding:"3px" }}
-
-          placeholder = "Enter Kweet..."
-        >
-        </Input>
+          style={{ border: "1px gray solid", width: "358px", padding: "3px" }}
+          placeholder="Enter Kweet..."
+        ></Input>
         <Button onClick={createMsg}>Kweet!</Button>
       </div>
-      <div style={{
-        height: "60vh",
-        width: "30vw",
-        overflowY: "scroll",
-        display:"flex",
-        flexDirection:"column"
-      }}>
-      {kweets.length > 0 &&
-        kweets.map((kweet, index) => (
-          <Container
-            style={{
-              width: "25vw",
-              marginTop: "30px",
-              marginBottom: "1px",
-              //display: "flex",
-              WebkitJustifyContent: "flexStart"
+      <div
+        style={{
+          height: "60vh",
+          width: "30vw",
+          overflowY: "scroll",
+          display: "flex",
+          flexDirection: "column"
+        }}
+      >
+        {kweets.length > 0 &&
+          kweets.map((kweet, index) => (
+            <Container
+              style={{
+                width: "25vw",
+                marginTop: "30px",
+                marginBottom: "1px",
+                //display: "flex",
+                WebkitJustifyContent: "flexStart"
               }}
-            key={kweet.id}>
+              key={kweet.id}
+            >
+              <div style={styles.kweet}>
+                <img
+                  style={styles.profileCircle}
+                  src={Background}
+                  alt="profile"
+                />
+                <div>
+                  <div style={styles.kweetUserName}>{kweet.username}</div>
+                  <div style={styles.kweetInfo}>
+                    {kweet.text}
 
-            <div style={styles.kweet}>
-              <img
-                style={styles.profileCircle}
-                src={Background}
-                alt="profile"
-              />
-              <div>
-                <div style={styles.kweetUserName}>{kweet.username}</div>
-                <div style={styles.kweetInfo}>
-                  {kweet.text}
-
-                  <Button
-                    onClick={() => unMessage(kweet.id)}
-                    style={{ height: "20px", width: "50px" }}
-                  >
-                    Delete
-                  </Button>
-
-                  <p># of Likes: {kweet.likes.length}</p>
-                  <Button>
-                    <Like
-                      onClick={() => createLike(kweet.id)}
-                      style={{ height: "20px", width: "20px" }}
+                    <Button
+                      onClick={() => unMessage(kweet.id)}
+                      style={{ height: "20px", width: "50px" }}
                     >
-                      Like
-                    </Like>
-                  </Button>
-                  <Button>
-                    <Dislike
-                      onClick={() => createUnLike(kweet)}
-                      style={{ height: "20px", width: "20px" }}
-                    >
-                      UnLike
-                    </Dislike>
-                  </Button>
-                  {/* <Button 
-                    onClick={() => unMessage(kweet)}
-                    style={{ height: "20px", width: "20px" }}
-                    >Delete</Button> */}
+                      Delete
+                    </Button>
+
+                    <p># of Likes: {kweet.likes.length}</p>
+                    <Button>
+                      <Like
+                        onClick={() => createLike(kweet.id)}
+                        style={{ height: "20px", width: "20px" }}
+                      >
+                        Like
+                      </Like>
+                    </Button>
+                    <Button>
+                      <Dislike
+                        onClick={() => createUnLike(kweet)}
+                        style={{ height: "20px", width: "20px" }}
+                      >
+                        UnLike
+                      </Dislike>
+                    </Button>
+                    
+                  </div>
                 </div>
               </div>
-            </div>
-            <div>{getUser()}</div>
-          </Container>
-        )) }
-       </div>
+              <div>{getUser()}</div>
+            </Container>
+          ))}
+      </div>
     </>
   );
-  
 }
 const styles = {
   profileCircle: {

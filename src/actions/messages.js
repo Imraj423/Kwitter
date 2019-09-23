@@ -19,7 +19,6 @@ export const DELETE_MESSAGE = "DELETE_MESSAGE";
 export const DELETE_MESSAGE_SUCCESS = "DELETE_MESSAGE_SUCCESS";
 export const DELETE_MESSAGE_FAIL = "DELETE_MESSAGE_FAIL";
 
-
 export const getMessages = (limit = 100, offset = 0, username) => dispatch => {
   dispatch({ type: GET_MESSAGES });
 
@@ -92,7 +91,6 @@ export const GetLoggedInUserMessages = () => (dispatch, getState) => {
   dispatch(getMessages(username));
 };
 
-
 export const updateMessageById = messageId => dispatch => {
   dispatch({ type: UPDATE_MESSAGE_BY_ID });
 
@@ -111,7 +109,6 @@ export const updateMessageById = messageId => dispatch => {
     });
 };
 
-
 export const createMessage = messageData => (dispatch, getState) => {
   //const { token } = getState().auth.login.token;
   dispatch({
@@ -122,7 +119,7 @@ export const createMessage = messageData => (dispatch, getState) => {
     method: "POST",
     headers: {
       ...jsonHeaders,
-      "Authorization": `Bearer ${getState().auth.login.token}`
+      Authorization: `Bearer ${getState().auth.login.token}`
     },
     body: JSON.stringify(messageData)
   })
@@ -141,10 +138,8 @@ export const createMessage = messageData => (dispatch, getState) => {
           payload: err
         })
       );
-    })
-  }
-
-
+    });
+};
 
 export const deleteMessage = messageId => (dispatch, getState) => {
   dispatch({
@@ -174,4 +169,3 @@ export const deleteMessage = messageId => (dispatch, getState) => {
       );
     });
 };
-
