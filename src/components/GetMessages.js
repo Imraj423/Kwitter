@@ -107,12 +107,15 @@ export function MessageList() {
                   <div style={styles.kweetInfo}>
                     {kweet.text}
 
-                    <Button
+                    {kweet.username === currentUsername ?
+                    (<Button
                       onClick={() => unMessage(kweet.id)}
                       style={{ height: "20px", width: "50px" }}
                     >
                       Delete
-                    </Button>
+                    </Button>)
+                    : ("")
+                    }
 
                     <p># of Likes: {kweet.likes.length}</p>
                     <Button>
