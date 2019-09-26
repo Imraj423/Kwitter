@@ -4,26 +4,18 @@ import Container from "@material-ui/core/Container";
 import Dislike from "@material-ui/icons/ThumbDown.js";
 import Like from "@material-ui/icons/ThumbUp.js";
 import { Input, Button } from "@material-ui/core";
+
 import { getMessages, createMessage, deleteMessage } from "../actions/messages";
 import { addLike, unLike } from "../actions/likes";
-//import Background from "./Logo1.png";
+import Background from "./Logo1.png";
 import { getUser } from "../actions";
-import { domain } from "../actions/constants";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles(theme => ({
-  margin: {
-    margin: theme.spacing(1)
-  }
-}));
+// import {domain} from "../actions/constants"
 
 export function MessageList() {
-  const classes = useStyles();
   const kweets = useSelector(state => state.messages.getMessages);
   const currentUsername = useSelector(state => state.auth.login.username);
 
+  // const create = useSelector(state => state.messages.createMessage)
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
@@ -48,7 +40,7 @@ export function MessageList() {
     console.log(kweet);
     dispatch(deleteMessage(kweet)).then(() => dispatch(getMessages()));
   };
-  const profilePic = useSelector(state => state.users.pictureLocation);
+
   const handleInput = e => {
     //take in the event
     setInput(e.target.value);
@@ -104,10 +96,11 @@ export function MessageList() {
               }}
               key={kweet.id}
             >
+            
               <div style={styles.kweet}>
                 <img
                   style={styles.profileCircle}
-                  src={domain + profilePic}
+                  src={Background}
                   alt="profile"
                 />
                 <div>
@@ -115,14 +108,12 @@ export function MessageList() {
                   <div style={styles.kweetInfo}>
                     {kweet.text}
 
-                    <IconButton
+                    <Button
                       onClick={() => unMessage(kweet.id)}
-                      aria-label="delete"
-                      className={classes.margin}
-                      size="small"
+                      style={{ height: "20px", width: "50px" }}
                     >
-                      <DeleteIcon fontSize="small" />
-                    </IconButton>
+                      Delete
+                    </Button>
 
                     <p># of Likes: {kweet.likes.length}</p>
                     <Button>
@@ -141,6 +132,7 @@ export function MessageList() {
                         UnLike
                       </Dislike>
                     </Button>
+                    
                   </div>
                 </div>
               </div>
@@ -151,7 +143,6 @@ export function MessageList() {
     </>
   );
 }
-
 const styles = {
   profileCircle: {
     borderRadius: "50%",

@@ -9,9 +9,10 @@ import { addLike, unLike } from "../actions/likes";
 //import Background from "./Logo1.png";
 import { getUser } from "../actions";
 import { domain } from "../actions/constants";
-import DeleteIcon from "@material-ui/icons/Delete";
+import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
+
 
 const useStyles = makeStyles(theme => ({
   margin: {
@@ -115,6 +116,7 @@ export function MessageList() {
                   <div style={styles.kweetInfo}>
                     {kweet.text}
 
+                   
                     <IconButton
                       onClick={() => unMessage(kweet.id)}
                       aria-label="delete"
@@ -123,6 +125,12 @@ export function MessageList() {
                     >
                       <DeleteIcon fontSize="small" />
                     </IconButton>
+                    {/* <Button
+                      
+                      style={{ display: "flex", height: "20px", width: "50px" }}
+                    >
+                      Delete
+                    </Button> */}
 
                     <p># of Likes: {kweet.likes.length}</p>
                     <Button>
@@ -152,6 +160,10 @@ export function MessageList() {
   );
 }
 
+
+
+
+
 const styles = {
   profileCircle: {
     borderRadius: "50%",
@@ -174,3 +186,5 @@ const styles = {
     fontFamily: "Helvetic Neue"
   }
 };
+
+

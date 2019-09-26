@@ -1,4 +1,4 @@
-
+import edtUserProfile from "./edtUserProfile";
 
 export { default as App } from "./App";
 export { default as LoginForm } from "./LoginForm";

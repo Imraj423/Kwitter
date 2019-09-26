@@ -57,13 +57,13 @@ const useStyles = makeStyles(theme => ({
     alignItems: "flex-start"
   },
   feed: {
-    float: "center"
+    float: "right"
   },
   hLinks: {
       position:"absolute",
       display:"flexBox",
       flexDirection:"column",
-       left:"260%",
+      // left:"275%",
       // bottom:"280px"
   },
   

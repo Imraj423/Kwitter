@@ -9,18 +9,8 @@ import { addLike, unLike } from "../actions/likes";
 //import Background from "./Logo1.png";
 import { getUser } from "../actions";
 import { domain } from "../actions/constants";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles(theme => ({
-  margin: {
-    margin: theme.spacing(1)
-  }
-}));
 
 export function MessageList() {
-  const classes = useStyles();
   const kweets = useSelector(state => state.messages.getMessages);
   const currentUsername = useSelector(state => state.auth.login.username);
 
@@ -104,6 +94,7 @@ export function MessageList() {
               }}
               key={kweet.id}
             >
+            
               <div style={styles.kweet}>
                 <img
                   style={styles.profileCircle}
@@ -115,14 +106,12 @@ export function MessageList() {
                   <div style={styles.kweetInfo}>
                     {kweet.text}
 
-                    <IconButton
+                    <Button
                       onClick={() => unMessage(kweet.id)}
-                      aria-label="delete"
-                      className={classes.margin}
-                      size="small"
+                      style={{ height: "20px", width: "50px" }}
                     >
-                      <DeleteIcon fontSize="small" />
-                    </IconButton>
+                      Delete
+                    </Button>
 
                     <p># of Likes: {kweet.likes.length}</p>
                     <Button>
@@ -141,6 +130,7 @@ export function MessageList() {
                         UnLike
                       </Dislike>
                     </Button>
+                    
                   </div>
                 </div>
               </div>
@@ -151,6 +141,34 @@ export function MessageList() {
     </>
   );
 }
+<div style={styles.usersList}>
+  <ListGroup>
+    {filteredUsers.map((user, index) => (
+      <UserListCard user={user} key={index} />
+    ))}
+  </ListGroup>
+</div>;
+const UserListCard = props => {
+  let { pictureLocation, username, displayName } = props.user;
+
+  return (
+    <ListGroupItem>
+      <NavLink style={{ outline: "none" }} to={`/profile/${username}`}>
+        <div style={{ display: "flex" }}>
+          <div>
+            <img style={styles.profileCircle} src={pictureLocation} alt="" />
+          </div>
+          <div style={{ overflow: "hidden" }}>
+            <ListGroupItemHeading>{displayName}</ListGroupItemHeading>
+            <ListGroupItemText>{username}</ListGroupItemText>
+          </div>
+        </div>
+      </NavLink>
+    </ListGroupItem>
+  );
+};
+
+
 
 const styles = {
   profileCircle: {

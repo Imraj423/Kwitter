@@ -8,7 +8,7 @@ import useStyles from "./LFStyle.js";
 //import Background from "./Logo1.png";
 import { Link } from "@material-ui/core";
 import { useSelector } from "react-redux";
-//import { styles } from "./FList.js";
+import { styles } from "./FList.js";
 import { domain } from "../actions/constants/index.js";
 
 export default function MediaCard() {

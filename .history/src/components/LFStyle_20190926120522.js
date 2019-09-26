@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: "flex-start"
   },
   feed: {
-    float: "center"
+    float: "right"
   },
   hLinks: {
       position:"absolute",

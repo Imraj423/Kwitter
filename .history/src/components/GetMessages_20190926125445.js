@@ -9,18 +9,9 @@ import { addLike, unLike } from "../actions/likes";
 //import Background from "./Logo1.png";
 import { getUser } from "../actions";
 import { domain } from "../actions/constants";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles(theme => ({
-  margin: {
-    margin: theme.spacing(1)
-  }
-}));
+import DeleteIcon from '@material-ui/icons/Delete';
 
 export function MessageList() {
-  const classes = useStyles();
   const kweets = useSelector(state => state.messages.getMessages);
   const currentUsername = useSelector(state => state.auth.login.username);
 
@@ -114,33 +105,41 @@ export function MessageList() {
                   <div style={styles.kweetUserName}>{kweet.username}</div>
                   <div style={styles.kweetInfo}>
                     {kweet.text}
-
-                    <IconButton
-                      onClick={() => unMessage(kweet.id)}
-                      aria-label="delete"
-                      className={classes.margin}
-                      size="small"
-                    >
+                   
                       <DeleteIcon fontSize="small" />
-                    </IconButton>
+                      <IconButton
+                        onClick={() => unMessage(kweet.id)}
+                        aria-label="delete"
+                        className={classes.margin}
+                        size="small"
+                      >
+                        <ArrowDownwardIcon fontSize="inherit" />
+                      </IconButton>
+                      {/* <Button
+                      
+                      style={{ display: "flex", height: "20px", width: "50px" }}
+                    >
+                      Delete
+                    </Button> */}
 
-                    <p># of Likes: {kweet.likes.length}</p>
-                    <Button>
-                      <Like
-                        onClick={() => createLike(kweet.id)}
-                        style={{ height: "20px", width: "20px" }}
-                      >
-                        Like
-                      </Like>
-                    </Button>
-                    <Button>
-                      <Dislike
-                        onClick={() => createUnLike(kweet)}
-                        style={{ height: "20px", width: "20px" }}
-                      >
-                        UnLike
-                      </Dislike>
-                    </Button>
+                      <p># of Likes: {kweet.likes.length}</p>
+                      <Button>
+                        <Like
+                          onClick={() => createLike(kweet.id)}
+                          style={{ height: "20px", width: "20px" }}
+                        >
+                          Like
+                        </Like>
+                      </Button>
+                      <Button>
+                        <Dislike
+                          onClick={() => createUnLike(kweet)}
+                          style={{ height: "20px", width: "20px" }}
+                        >
+                          UnLike
+                        </Dislike>
+                      </Button>
+                    
                   </div>
                 </div>
               </div>
@@ -151,6 +150,10 @@ export function MessageList() {
     </>
   );
 }
+
+
+
+
 
 const styles = {
   profileCircle: {
@@ -174,3 +177,5 @@ const styles = {
     fontFamily: "Helvetic Neue"
   }
 };
+
+

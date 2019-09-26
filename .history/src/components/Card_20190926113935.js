@@ -8,13 +8,12 @@ import useStyles from "./LFStyle.js";
 //import Background from "./Logo1.png";
 import { Link } from "@material-ui/core";
 import { useSelector } from "react-redux";
-//import { styles } from "./FList.js";
-import { domain } from "../actions/constants/index.js";
+import { styles } from "./FList.js";
 
 export default function MediaCard() {
   const classes = useStyles();
   const currentUsername = useSelector(state => state.auth.login.username);
-  const profilePic = useSelector(state => state.users.pictureLocation)
+  const profilePic = useSelector(state => state.user.pictureLocation)
 
   
 
@@ -22,12 +21,12 @@ export default function MediaCard() {
     <CardActionArea className={classes.media} title="User Profile">
       <CardMedia className={classes.cm}>
         {/* <img src={Background} alt="logo" /> */}
-        {/* <img style={styles.profileCircle} src={domain + profilePic} alt="" /> */}
-        <img src={domain + profilePic} alt="Profile_Pic" />
+        <img style={styles.profileCircle} src={profilePic} alt="" />
         <CardContent>
           <Typography gutterBottom variant="h3" component="h1">
             {currentUsername}
           </Typography>
+         
 
           <CardActions>
             <Link href="/edit" size="small" color="primary">
