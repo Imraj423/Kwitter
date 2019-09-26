@@ -24,7 +24,9 @@ class A2b extends Component {
       [event.target.name]: event.target.value
     });
   };
-  
+  refreshPage = event => {
+    this.setState({ games: [] });
+  }
 
   handleUploadPicture = event => {
     event.preventDefault();
@@ -69,10 +71,10 @@ class A2b extends Component {
         <br />
         <form onSubmit={this.handleUploadPicture}>
           <input name="picture" type="file" />
-          <button value="submit">Upload Picture</button>
+          <button value="submit" onClick={this.refreshPage.bind(this)}>
+            Upload Picture
+          </button>
         </form>
-
-        
       </React.Fragment>
     );
   }

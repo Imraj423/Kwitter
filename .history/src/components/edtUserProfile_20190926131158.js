@@ -24,7 +24,6 @@ class A2b extends Component {
       [event.target.name]: event.target.value
     });
   };
-  
 
   handleUploadPicture = event => {
     event.preventDefault();
