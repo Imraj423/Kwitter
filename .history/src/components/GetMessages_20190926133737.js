@@ -55,8 +55,8 @@ export function MessageList() {
   };
   const createMsg = () => {
     // Take input and make post request
-    dispatch(createMessage({ text: input }));
-    //dispatch(getMessages());
+    dispatch(createMessage({ text: input })).then(() => 
+    dispatch(getMessages()));
   };
   useEffect(() => {
     dispatch(getMessages(100, 0));
