@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 import Dislike from "@material-ui/icons/ThumbDown.js";
 import Like from "@material-ui/icons/ThumbUp.js";
 import { Input } from "@material-ui/core";
-import { Button } from "@material-ui-/core/Button";
+import { Button } from "@material-ui/core/Button";
 import { getMessages, createMessage, deleteMessage } from "../actions/messages";
 import { addLike, unLike } from "../actions/likes";
 import Background from "./Logo1.png";
@@ -107,15 +107,16 @@ export function MessageList() {
                   <div style={styles.kweetInfo}>
                     {kweet.text}
 
-                    {kweet.username === currentUsername ?
-                    (<Button
-                      onClick={() => unMessage(kweet.id)}
-                      style={{ height: "20px", width: "50px" }}
-                    >
-                      Delete
-                    </Button>)
-                    : ("")
-                    }
+                    {kweet.username === currentUsername ? (
+                      <Button
+                        onClick={() => unMessage(kweet.id)}
+                        style={{ height: "20px", width: "50px" }}
+                      >
+                        Delete
+                      </Button>
+                    ) : (
+                      ""
+                    )}
 
                     <p># of Likes: {kweet.likes.length}</p>
                     <Button>
@@ -134,7 +135,6 @@ export function MessageList() {
                         UnLike
                       </Dislike>
                     </Button>
-                    
                   </div>
                 </div>
               </div>
