@@ -8,7 +8,7 @@ import { getMessages, createMessage, deleteMessage } from "../actions/messages";
 import { addLike, unLike } from "../actions/likes";
 import Background from "./Logo1.png";
 import { getUser } from "../actions";
-//import { domain } from "../actions/constants";
+import { domain } from "../actions/constants";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
@@ -49,10 +49,10 @@ export function MessageList() {
     dispatch(deleteMessage(kweet)).then(() => dispatch(getMessages()));
   };
   // const profilePic = useSelector(state => state.users.pictureLocation);
-  const handleInput = e => {
-    //take in the event
-    setInput(e.target.value);
-  };
+  // const handleInput = e => {
+  //   //take in the event
+  //   setInput(e.target.value);
+  // };
   const createMsg = () => {
     // Take input and make post request
     dispatch(createMessage({ text: input }));

@@ -9,12 +9,12 @@ import Background from "./Logo1.png";
 import { Link } from "@material-ui/core";
 import { useSelector } from "react-redux";
 //import { styles } from "./FList.js";
-//mport { domain } from "../actions/constants/index.js";
+import { domain } from "../actions/constants/index.js";
 
 export default function MediaCard() {
   const classes = useStyles();
   const currentUsername = useSelector(state => state.auth.login.username);
- //const profilePic = useSelector(state => state.users.pictureLocation)
+  const profilePic = useSelector(state => state.users.pictureLocation)
 
   
 
