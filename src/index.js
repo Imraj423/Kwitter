@@ -4,22 +4,22 @@ import "./index.css";
 import { App } from "./components";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
-import {BrowserRouter} from "react-router-dom"
-//import { ConnectedRouter } from "connected-react-router";
-import configureStore from "./configureStore"; //{ history }
+// import {BrowserRouter} from "react-router-dom"
+import { ConnectedRouter } from "connected-react-router";
+import configureStore, { history } from "./configureStore";
 
 const store = configureStore({});
 
 ReactDOM.render(
   <Provider store={store}>
-    {/* <ConnectedRouter
-      basename={"/assessment---kwitter-frontend"}
+    <ConnectedRouter
+      // basename={"/assessment---kwitter-frontend"}
       history={history}
-    > */}
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    >
+      {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
       <App />
-      </BrowserRouter>
-    {/* </ConnectedRouter> */}
+      {/* </BrowserRouter> */}
+    </ConnectedRouter>
   </Provider>,
   document.getElementById("root")
 );
