@@ -30,7 +30,7 @@
     "react-redux": "^7.1.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^3.4.1",
     "react-spinkit": "^3.0.0",
     "react-webcam": "^3.0.1",
     "redux": "^4.0.4",
@@ -69,6 +69,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://gitlab.com/Imraj423/kwitterfinalize/issues"
-  },
-  "homepage": "https://imraj423.gitlab.io/assessment---kwitter-frontend"
+  }
 }
