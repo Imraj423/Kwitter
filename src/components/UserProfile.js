@@ -1,29 +1,29 @@
 import React from "react";
-import Headliner from "./Header.js";
 import MediaCard from "./Card.js";
 import useStyles from "./LFStyle.js";
 import Container from "@material-ui/core/Container";
 import ErrorBoundary from "../ErrorBoundary/ErrBounds";
 import { MessageList } from "./GetMessages.js";
 import { FeedContent } from "semantic-ui-react";
-
+import { NavBar } from "./NavBar.js";
+// import profile_pic from "./profilepic";
 
 function LandingPage() {
   const classes = useStyles();
   return (
-    <Container>
+    <Container >
       <ErrorBoundary>
-        <Headliner className={classes.headliner} />
-      </ErrorBoundary>
-      
-      <ErrorBoundary>
-        <MediaCard className={classes.mediacard} />
+        <NavBar />
       </ErrorBoundary>
 
-      <FeedContent>
-      <MessageList/>
+      <ErrorBoundary>
+        <MediaCard className={classes.mediacard} />
+        <profile_pic />
+      </ErrorBoundary>
+
+      <FeedContent >
+        <MessageList />
       </FeedContent>
-       
     </Container>
   );
 }

@@ -9,12 +9,12 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path="/" render={() => <LoginForm />} />
-        <Route exact path="/profile" render={() => <UserProfile />} />
+        <Route path="/profile" render={() => <UserProfile />} />
 
-        <Route exact path="/signup" render={() => <SignUpForm />} />
-        <Route exact path="/users" render={() => <Tester />} />
+        <Route path="/signup" render={() => <SignUpForm />} />
+        <Route path="/users" render={() => <Tester />} />
 
-        <Route exact path="/edit" render={() => <EditProfile />} />
+        <Route path="/edit" render={() => <EditProfile />} />
       </Switch>
     );
   }

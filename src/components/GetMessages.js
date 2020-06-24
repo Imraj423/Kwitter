@@ -44,8 +44,7 @@ export function MessageList() {
   };
 
   const unMessage = kweet => {
-    console.log("test");
-    console.log(kweet);
+   
     dispatch(deleteMessage(kweet)).then(() => dispatch(getMessages()));
   };
   // const profilePic = useSelector(state => state.users.pictureLocation);
@@ -67,7 +66,7 @@ export function MessageList() {
     <>
       <div
         style={{
-          width: "50vw",
+          width: "75vw",
           marginTop: "30px",
           marginBottom: "1px",
           display: "flex",
@@ -86,7 +85,7 @@ export function MessageList() {
       <div
         style={{
           height: "60vh",
-          width: "30vw",
+          width: "75vw",
           overflowY: "scroll",
           display: "flex",
           flexDirection: "column"
@@ -96,7 +95,7 @@ export function MessageList() {
           kweets.map((kweet, index) => (
             <Container
               style={{
-                width: "25vw",
+                // width: "25vw",
                 marginTop: "30px",
                 marginBottom: "1px",
                 //display: "flex",
@@ -114,6 +113,8 @@ export function MessageList() {
                   <div style={styles.kweetUserName}>{kweet.username}</div>
                   <div style={styles.kweetInfo}>
                     {kweet.text}
+
+                    <br/>
                     {kweet.username === currentUsername ? (
                       <IconButton
                         onClick={() => unMessage(kweet.id)}
@@ -126,14 +127,14 @@ export function MessageList() {
                     ) : (
                       ""
                     )}
-
-                    <p># of Likes: {kweet.likes.length}</p>
+                    <br/>
+                    <span>Likes: {kweet.likes.length}</span>
+                    
                     <Button>
                       <Like
                         onClick={() => createLike(kweet.id)}
                         style={{ height: "20px", width: "20px" }}
                       >
-                        Like
                       </Like>
                     </Button>
                     <Button>
@@ -141,7 +142,7 @@ export function MessageList() {
                         onClick={() => createUnLike(kweet)}
                         style={{ height: "20px", width: "20px" }}
                       >
-                        UnLike
+                       
                       </Dislike>
                     </Button>
                   </div>

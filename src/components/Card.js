@@ -5,9 +5,15 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import useStyles from "./LFStyle.js";
-import Background from "./Logo1.png";
+import user from "./user1.jpg";
 import { Link } from "@material-ui/core";
 import { useSelector } from "react-redux";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import InstagramIcon from "@material-ui/icons/Instagram";
+// import { domain } from "../actions/constants";
+
+// import Icon from "@material-ui/core/Icon";
 //import { styles } from "./FList.js";
 //mport { domain } from "../actions/constants/index.js";
 
@@ -21,9 +27,8 @@ export default function MediaCard() {
   return (
     <CardActionArea className={classes.media} title="User Profile">
       <CardMedia className={classes.cm}>
-        <img src={Background} alt="logo" />
-        {/* <img style={styles.profileCircle} src={domain + profilePic} alt="" /> */}
-        {/* <img src={domain + profilePic} alt="Profile_Pic" /> */}
+        <img src={user} alt="logo" />
+        
         <CardContent>
           <Typography gutterBottom variant="h3" component="h1">
             {currentUsername}
@@ -35,17 +40,17 @@ export default function MediaCard() {
             </Link>
             <div className={classes.hLinks}>
               <a href="https://www.facebook.com" className={classes.ilink}>
-                Facebook
+                <FacebookIcon />
               </a>
               <br />
               <br />
               <a href="https://www.linkedin.com" className={classes.ilink}>
-                LinkedIn
+                <LinkedInIcon />
               </a>
               <br />
               <br />
               <a href="https://www.instagram.com" className={classes.ilink}>
-                Instagram
+                <InstagramIcon />
               </a>
               <br />
               <br />

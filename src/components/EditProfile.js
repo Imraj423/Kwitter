@@ -1,14 +1,13 @@
 import React from "react";
-import Headliner from "./Header.js";
 import Container from "@material-ui/core/Container";
 import A2b from "./edtUserProfile";
-import useStyles from "./LFStyle.js";
+import { NavBar } from "./NavBar.js";
 
 function EditProfile() {
-    const classes = useStyles();
+    
   return (
     <Container>
-      <Headliner className={classes.headliner} />
+      <NavBar/>
       <A2b />
     </Container>
   );

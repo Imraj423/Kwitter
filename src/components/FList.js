@@ -100,14 +100,14 @@ const styles = {
   },
 
   usersList: {
-    width: "40vw",
-    height: "80vh",
+    width: "60vw",
+    height: "60vh",
     overflowY: "scroll"
   },
 
   cardContainer: {
-    marginLeft: "75px",
-    width: "50vw",
+    // marginLeft: "50px",
+    width: "70vw",
     marginTop: "20px"
   }
 };

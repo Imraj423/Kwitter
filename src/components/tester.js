@@ -1,16 +1,14 @@
 import React from "react";
-import Headliner from "./Header.js";
-import useStyles from "./LFStyle.js";
 import Container from "@material-ui/core/Container";
 import ErrorBoundary from "../ErrorBoundary/ErrBounds";
 import FriendsList from "./FList";
+import { NavBar } from "./NavBar.js";
 
 function Tester() {
-  const classes = useStyles();
   return (
-    <Container>
+    <Container style={{width:"100vw"}}>
       <ErrorBoundary>
-        <Headliner className={classes.headliner} />
+        <NavBar/>
       </ErrorBoundary>
     <FriendsList/>
 

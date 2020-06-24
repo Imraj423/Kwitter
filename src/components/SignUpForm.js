@@ -34,7 +34,7 @@ class SignUpForm extends Component {
 
   render() {
     return (
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" style={{backgroundColor : "lightSkyBlue", height : "100vh"}}>
         <CssBaseline />
         <div
           style={{
@@ -43,9 +43,9 @@ class SignUpForm extends Component {
             alignItems: "center"
           }}
         >
-          <Avatar>
+          <div>
             <img src={Background} alt="logo" />
-          </Avatar>
+          </div>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>

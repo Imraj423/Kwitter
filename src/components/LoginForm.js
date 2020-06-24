@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { loginThenGoToUserProfile as login } from "../actions";
 import Container from '@material-ui/core/Container';
 import Background from './Logo1.png'
-import useStyles from'./LFStyle.js'
+import useStyles from './LFStyle.js'
 import { useDispatch } from 'react-redux'
 import { Link } from '@material-ui/core';
 
